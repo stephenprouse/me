@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stephen W. Prouse | Clinical Informatics Leader</title>
-  <meta name="description" content="Resume website for Stephen W. Prouse, MS, RN, NI-BC, NEA-BC — Director of Clinical Informatics, nurse leader, and DNP candidate." />
+  <meta
+    name="description"
+    content="Resume website for Stephen W. Prouse, MS, RN, NI-BC, NEA-BC — Director of Clinical Informatics, nurse leader, and DNP candidate."
+  />
+
   <style>
     :root {
       --navy: #0d1b2a;
@@ -33,7 +37,10 @@
       line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .container {
       width: min(calc(100% - 2rem), var(--max));
@@ -92,6 +99,8 @@
       font-weight: 700;
       border: 1px solid transparent;
       transition: 0.2s ease;
+      cursor: pointer;
+      font: inherit;
     }
 
     .btn:hover {
@@ -180,7 +189,8 @@
       margin-bottom: 1.2rem;
     }
 
-    .hero-badges, .pill-list {
+    .hero-badges,
+    .pill-list {
       display: flex;
       flex-wrap: wrap;
       gap: 0.65rem;
@@ -188,7 +198,8 @@
 
     .hero-badges { margin: 1.2rem 0 1.6rem; }
 
-    .badge, .pill {
+    .badge,
+    .pill {
       padding: 0.5rem 0.78rem;
       border-radius: 999px;
       font-size: 0.9rem;
@@ -220,9 +231,15 @@
       gap: 1rem;
     }
 
-    .panel, .card, .contact-card, .presentation-item { padding: 1.3rem; }
+    .panel,
+    .card,
+    .contact-card,
+    .presentation-item {
+      padding: 1.3rem;
+    }
 
-    .panel h3, .card h3 {
+    .panel h3,
+    .card h3 {
       color: var(--navy);
       font-size: 1.02rem;
       margin-bottom: 0.85rem;
@@ -254,7 +271,9 @@
       margin-top: 0.2rem;
     }
 
-    section { padding: 1.1rem 0 2rem; }
+    section {
+      padding: 1.1rem 0 2rem;
+    }
 
     .section-title {
       color: var(--navy);
@@ -282,12 +301,16 @@
     .cert-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-grid { grid-template-columns: repeat(3, 1fr); }
 
-    .card ul, .timeline-item ul {
+    .card ul,
+    .timeline-item ul {
       margin: 0;
       padding-left: 1.2rem;
     }
 
-    .card li + li, .timeline-item li + li { margin-top: 0.5rem; }
+    .card li + li,
+    .timeline-item li + li {
+      margin-top: 0.5rem;
+    }
 
     .timeline {
       display: grid;
@@ -360,41 +383,85 @@
       font-size: 0.92rem;
     }
 
+    .print-header {
+      display: none;
+    }
+
+    @page {
+      size: letter;
+      margin: 0.5in;
+    }
+
     @media print {
-      .topbar,
-      .hero-actions,
-      .contact-card a[href^="mailto:"],
-      .contact-card a[href^="https://"] {
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
+      :root {
+        --shadow: none;
+        --radius: 0;
       }
 
-      .topbar { display: none; }
+      html, body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 10.5pt;
+        line-height: 1.35;
+      }
 
       body {
-        background: #fff;
-        font-size: 11pt;
+        margin: 0;
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
 
-      .hero {
-        padding-top: 0;
+      .topbar,
+      .hero,
+      .hero-actions,
+      button,
+      .btn,
+      nav {
+        display: none !important;
       }
 
-      section {
-        padding: 0.45rem 0 0.85rem;
-        break-inside: avoid;
+      .print-header {
+        display: block;
+        margin-bottom: 0.25in;
+        padding-bottom: 0.12in;
+        border-bottom: 2px solid #000;
+      }
+
+      .print-header h1 {
+        margin: 0 0 0.05in 0;
+        font-size: 20pt !important;
+        line-height: 1.05;
+        color: #000 !important;
+      }
+
+      .print-header p {
+        margin: 0.03in 0;
+        font-size: 10pt !important;
+        color: #000 !important;
       }
 
       .container {
-        width: 100%;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
 
-      .hero-grid,
+      section {
+        padding: 0.15rem 0 0.55rem 0 !important;
+        margin: 0 !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
       .summary-grid,
       .skills-grid,
       .cert-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
+      .contact-grid,
+      .presentations-grid,
+      .key-stats {
+        display: block !important;
       }
 
       .hero-card,
@@ -402,27 +469,114 @@
       .card,
       .timeline-item,
       .contact-card,
-      .presentation-item {
-        box-shadow: none;
-        border: 1px solid #d1d5db;
-        background: #fff;
-      }
-
-      .hero-actions {
-        display: none;
-      }
-
-      .timeline-item,
       .presentation-item,
-      .card,
-      .contact-card,
-      .panel {
+      .cert-item,
+      .stat {
+        background: #fff !important;
+        border: 1px solid #d9d9d9 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin-bottom: 0.35rem !important;
+        padding: 0.55rem 0.65rem !important;
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
+      .hero-card::after,
+      .eyebrow {
+        display: none !important;
+      }
+
+      h1 {
+        font-size: 22pt !important;
+        line-height: 1.05 !important;
+        margin-bottom: 0.2rem !important;
+      }
+
+      h2.section-title {
+        font-size: 13.5pt !important;
+        margin-bottom: 0.12rem !important;
+        padding-bottom: 0.08rem;
+        border-bottom: 1px solid #bbb;
+        color: #000 !important;
+      }
+
+      h3 {
+        font-size: 11pt !important;
+        margin-bottom: 0.18rem !important;
+        color: #000 !important;
+      }
+
+      .subtitle,
+      .section-lead,
+      p,
+      li,
+      span,
+      div,
+      a {
+        font-size: 9.7pt !important;
+        color: #000 !important;
+      }
+
+      .section-lead {
+        margin-bottom: 0.4rem !important;
+      }
+
+      .hero-badges,
+      .pill-list {
+        display: block !important;
+        margin: 0.25rem 0 !important;
+      }
+
+      .badge,
+      .pill {
+        display: inline-block;
+        background: #fff !important;
+        border: 1px solid #cfcfcf !important;
+        color: #000 !important;
+        padding: 0.12rem 0.36rem !important;
+        margin: 0 0.18rem 0.18rem 0 !important;
+        font-size: 8.6pt !important;
+        border-radius: 999px !important;
+      }
+
+      ul {
+        margin: 0.15rem 0 0 0 !important;
+        padding-left: 1rem !important;
+      }
+
+      li {
+        margin-bottom: 0.12rem !important;
+      }
+
+      .timeline {
+        gap: 0 !important;
+      }
+
+      .timeline-top {
+        margin-bottom: 0.15rem !important;
+      }
+
+      .timeline-role,
+      .meta,
+      .contact-label {
+        color: #222 !important;
+      }
+
+      a,
+      a:visited {
+        color: #000 !important;
+        text-decoration: none !important;
+      }
+
       footer {
-        padding-top: 1rem;
+        padding: 0.35rem 0 0 0 !important;
+        font-size: 8.8pt !important;
+        color: #444 !important;
+      }
+
+      #presentations .presentation-item {
+        font-size: 9.2pt !important;
       }
     }
 
@@ -431,7 +585,9 @@
       .summary-grid,
       .skills-grid,
       .cert-grid,
-      .contact-grid { grid-template-columns: 1fr; }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
 
       .nav {
         flex-direction: column;
@@ -441,7 +597,14 @@
 
     @media (max-width: 640px) {
       .hero { padding-top: 3rem; }
-      .hero-card, .panel, .card, .timeline-item, .contact-card, .presentation-item { padding: 1.1rem; }
+      .hero-card,
+      .panel,
+      .card,
+      .timeline-item,
+      .contact-card,
+      .presentation-item {
+        padding: 1.1rem;
+      }
       .key-stats { grid-template-columns: 1fr; }
       .hero-actions { flex-direction: column; }
       .btn { width: 100%; }
@@ -468,6 +631,14 @@
   </header>
 
   <main>
+    <div class="container">
+      <div class="print-header">
+        <h1>Stephen W. Prouse</h1>
+        <p>MS, RN, NI-BC, NEA-BC | Director of Clinical Informatics | Bel Air, Maryland</p>
+        <p>stephen@prouse.us | stephen.prouse.us | LinkedIn: stephenprouse | X: @stephenprouse</p>
+      </div>
+    </div>
+
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-card">
@@ -641,7 +812,7 @@
             </div>
             <div class="timeline-role">Project Manager</div>
             <ul>
-              <li>Reported to the Senior Vice President of Nursing, led the implementation of Computerized Physician Order Entry (CPOE) in intensive care units across the health system.</li>
+              <li>Reported to the Senior Vice President of Nursing and led the implementation of Computerized Physician Order Entry (CPOE) in intensive care units across the health system.</li>
             </ul>
           </article>
 
@@ -664,7 +835,7 @@
             </div>
             <div class="timeline-role">Registered Nurse</div>
             <ul>
-              <li>Worked as Emergency Department Nurse, Charge Nurse, and student & EMT preceptor.</li>
+              <li>Worked as Emergency Department Nurse, Charge Nurse, and student &amp; EMT preceptor.</li>
             </ul>
           </article>
         </div>
@@ -673,7 +844,7 @@
 
     <section id="skills">
       <div class="container">
-        <h2 class="section-title">Skills, Certifications & Licenses</h2>
+        <h2 class="section-title">Skills, Certifications &amp; Licenses</h2>
         <p class="section-lead">
           Technical fluency paired with nursing, informatics, and executive leadership credentials.
         </p>
@@ -718,7 +889,7 @@
 
         <div class="cert-grid" style="margin-top: 1rem;">
           <div class="card">
-            <h3>Licensure & Certifications</h3>
+            <h3>Licensure &amp; Certifications</h3>
             <div class="cert-item">
               <strong>Registered Nurse</strong>
               <span>Maryland RN License: R119190</span>
@@ -753,7 +924,7 @@
             </div>
             <div class="cert-item">
               <strong>American Nurses Informatics Association</strong>
-              <span>Member</span>
+              <span>Member</span><br />
               <span>Board Member, 2005 – 2012</span>
             </div>
           </div>
@@ -791,7 +962,7 @@
 
     <section id="presentations">
       <div class="container">
-        <h2 class="section-title">Presentations & Lectures</h2>
+        <h2 class="section-title">Presentations &amp; Lectures</h2>
         <p class="section-lead">
           Selected speaking engagements, podium presentations, and guest lectures.
         </p>
@@ -799,7 +970,7 @@
         <div class="presentations-grid">
           <div class="presentation-item">Prouse, S., Budman, R., Ryan, G., Vogel, R. (2021, March 10). <em>Leveraging Data and Technology to Address Clinical Burnout in the Time of COVID-19 and Staff Shortages.</em> HIMSS Maryland Chapter, Baltimore, Maryland.</div>
           <div class="presentation-item">Sengstack, P., Coomer, S., Prouse, S. (2022, July 14). <em>Reducing nursing documentation: It’s not about the volume, it’s about the value.</em> Summer Institute in Nursing Informatics (SINI), Baltimore, Maryland.</div>
-          <div class="presentation-item">Quinn, C., Zeitler, K., Beeson, N., Prouse, S. (2022, August 23). <em>Shifting Perspectives & Challenging Paradigms in Nursing Documentation: Two approaches to reducing burden, increasing meaningful interaction, and changing the universal philosophy.</em> Epic User Group Meeting (UGM), Verona, Wisconsin.</div>
+          <div class="presentation-item">Quinn, C., Zeitler, K., Beeson, N., Prouse, S. (2022, August 23). <em>Shifting Perspectives &amp; Challenging Paradigms in Nursing Documentation: Two approaches to reducing burden, increasing meaningful interaction, and changing the universal philosophy.</em> Epic User Group Meeting (UGM), Verona, Wisconsin.</div>
           <div class="presentation-item">Prouse, S. (2022, November 28). <em>Informatics Role in Care Delivery Optimization.</em> Guest lecture, University of Maryland School of Nursing, NURS 737, Baltimore, MD.</div>
           <div class="presentation-item">Prouse, S., Beeson, N., McQuillan, K. (2023, July 20). <em>The informatics partnership: Building the bridge to care delivery optimization.</em> Peer-reviewed podium presentation, Summer Institute in Nursing Informatics (SINI), Baltimore, Maryland.</div>
           <div class="presentation-item">Prouse, S. (2024, April 30; 2025, April 24). <em>Systems Development Lifecycle.</em> Guest lecture, Nursing Informatics Certification Review, University of Maryland School of Nursing, Baltimore, MD.</div>
@@ -826,7 +997,11 @@
           </div>
           <div class="contact-card">
             <div class="contact-label">Online</div>
-            <div><a href="https://stephen.prouse.us">stephen.prouse.us</a><br />LinkedIn: stephenprouse<br />X: @stephenprouse</div>
+            <div>
+              <a href="https://stephen.prouse.us">stephen.prouse.us</a><br />
+              LinkedIn: stephenprouse<br />
+              X: @stephenprouse
+            </div>
           </div>
         </div>
       </div>
@@ -840,15 +1015,15 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
     function downloadPDF() {
       const originalTitle = document.title;
-      document.title = 'Stephen_W_Prouse_Resume';
+      document.title = "Stephen_W_Prouse_Resume";
       window.print();
-      setTimeout(() => {
+      window.setTimeout(() => {
         document.title = originalTitle;
-      }, 500);
+      }, 1000);
     }
   </script>
 </body>
